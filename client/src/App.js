@@ -7,12 +7,15 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Product from './components/Product';
+
 
 const App = () => (
   <div>
     <NavBar />
     <Switch>
       <Route path="/login" component={Login} />
+      <Route path="/products/:id" component={Product} />
       <Route path="/dashboard" component={Dashboard} />
       <Route exact path="/" component={Home} />
       <Route path="/about" component={About} />
