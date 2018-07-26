@@ -25,10 +25,11 @@ class Dashboard extends React.Component {
          return <Form submit={this.submit}/>
        }
        submit = (product) => {
-         let { products } = this.state
-         axios.post('/api/products', { product } )
-         .then( res => this.setState({ products: [res.data, ...products ], showForm: false }) )
-       }
+  let { products } = this.state;
+  axios.post('/api/products', { product } )
+    .then( res => this.setState({ products: [{...res.data}, ...products], showForm: false }) )
+    .catch( e => console.log(e.response.data.errors) )
+}
         toggleForm = () => {
           this.setState( state => {
             return { showForm: !state.showForm }
